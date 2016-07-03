@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
+using CoreSample2.Models;
 
 namespace CoreSample2
 {
@@ -43,6 +44,8 @@ namespace CoreSample2
             {
                 o.IdleTimeout = TimeSpan.FromHours(1);
             });
+            // Dependency Injection
+            services.AddTransient<ISample, SampleRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
